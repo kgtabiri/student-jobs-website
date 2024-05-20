@@ -1,5 +1,5 @@
 # import Flask class from flask module
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 
 # create an app (an object of the Flask class)
 app = Flask(__name__)
@@ -36,6 +36,11 @@ JOBS = [
 @app.route("/") # "/" is simply the home or index page
 def hello_world():
     return render_template('home.html', jobs=JOBS)
+
+@app.route("/api/jobs")
+def list_jobs():
+    return jsonify(JOBS) # convert JOBS list to json string
+
 
 if __name__ == '__main__':
     app.run(debug=True)

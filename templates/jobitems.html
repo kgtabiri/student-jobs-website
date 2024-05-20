@@ -1,14 +1,18 @@
-<div class="border-bottom mt-3" style=" padding-bottom: 8px;">
-    <h4 style="color: rgb(120, 120, 120); margin-bottom: 4px;">
-        {{job['title']}}
-    </h4>
-    <div>
-        <b>Location</b>: {{job['location']}}
+<div class="row border-bottom mt-3" style=" padding-bottom: 8px;">
+    <div class="col-9">
+        <h4 style="color: rgb(120, 120, 120); margin-bottom: 4px;">
+            {{job['title']}}
+        </h4>
+        <div>
+            <b>Location</b>: {{job['location']}}
+        </div>
+        {% if 'salary' in job %} <!--if 'salary' key exists in job dictionary-->
+        <div>
+            <b>Salary</b>: {{job['salary']}}
+        </div>
+        {% endif %}
     </div>
-    {% if 'salary' in job %} <!--if 'salary' key exists in job dictionary-->
-    <div>
-        <b>Salary</b>: {{job['salary']}}
+    <div class="col-3">
+        <button type="button" class="btn btn-outline-primary">Apply</button>
     </div>
-    <button type="button" class="btn btn-outline-primary">Apply</button>
-    {% endif %}
 </div>
